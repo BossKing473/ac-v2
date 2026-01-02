@@ -100,7 +100,7 @@ const About: React.FC = () => {
               {
                 name: 'Jerome G. Leal',
                 role: 'Lead Designer',
-                image: Jerome,
+                image: Angelo,
                 facebook: 'https://www.facebook.com/jerome.guarin.leal',
                 instagram: 'https://www.instagram.com/lealjerome5385?igsh=OHR5NmFtbXg2cW9o'
               }

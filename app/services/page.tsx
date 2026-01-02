@@ -2006,7 +2006,7 @@ const Services: React.FC<Record<string, never>> = () => {
                       </div>
                       <h3 className="text-xl font-bold text-dark mb-3">{item.title}</h3>
                       <p className="text-gray-600 leading-relaxed">{item.desc}</p>
-                      {item.link && (
+                      {/* {item.link && (
                         <a
                           href={item.link}
                           target="_blank"
@@ -2016,7 +2016,7 @@ const Services: React.FC<Record<string, never>> = () => {
                           {item.linkText || "Learn More"} 
                           <i className="fas fa-external-link-alt text-xs" aria-hidden="true"></i>
                         </a>
-                      )}
+                      )} */}
                     </div>
                   ))}
                 </div>
