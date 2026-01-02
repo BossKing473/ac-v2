@@ -251,8 +251,8 @@ if (formData.pwd_id.length !== 15) {
       <div className="w-full lg:w-1/2 bg-white flex items-center justify-center p-6 md:p-12 relative overflow-y-auto max-h-screen">
         <div className="max-w-md w-full py-8">
           <div className="text-center mb-8 lg:hidden">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-tr from-primary to-primary-light flex items-center justify-center text-white font-bold text-xl mx-auto mb-4">
-              <Image src={logo} alt="Logo" width={40} height={40} />
+            <div className="w-12 h-12 rounded-xl bg-gradient-to-tr flex items-center justify-center text-white font-bold text-xl mx-auto mb-4">
+              <Image src={logo} alt="Logo" width={60} height={60} />
             </div>
             <h2 className="text-2xl font-bold text-gray-900">Accessible Connections</h2>
           </div>
