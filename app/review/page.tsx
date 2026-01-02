@@ -225,67 +225,114 @@ const UserReviewPage: React.FC = () => {
         </div>
       ) : (
         // TABLE VIEW
-        <div className="overflow-x-auto bg-white rounded-3xl shadow-lg border border-gray-100">
-          <Table className="min-w-full divide-y divide-gray-200">
-            <TableHead className="bg-gray-50">
-              <TableRow>
-                <TableHeader>Name</TableHeader>
-                <TableHeader>Email</TableHeader>
-                <TableHeader>Disability</TableHeader>
-                <TableHeader>Sex</TableHeader>
-                <TableHeader>Birthdate</TableHeader>
-                <TableHeader>Status</TableHeader>
-                <TableHeader>Actions</TableHeader>
-              </TableRow>
-            </TableHead>
-            <TableBody className="bg-white divide-y divide-gray-200">
-              {profiles.map((user) => (
-                <TableRow key={user.user_id}>
-                  <td>{user.full_name}</td>
-                  <td>{user.email}</td>
-                  <td>{user.disability_type || "N/A"}</td>
-                  <td>{user.sex || "N/A"}</td>
-                  <td>{user.birthdate ? new Date(user.birthdate).toLocaleDateString() : "N/A"}</td>
-                  <td
-                    className={
-                      user.status === "pending"
-                        ? "text-yellow-600"
-                        : user.status === "active"
-                        ? "text-green-600"
-                        : "text-red-600"
+       // TABLE VIEW
+<div className="overflow-x-auto bg-white rounded-3xl shadow-lg border border-gray-100">
+  <table className="min-w-full border-collapse">
+    <thead className="bg-gray-50">
+      <tr>
+        {[
+          "Name",
+          "Email",
+          "Disability",
+          "Sex",
+          "Birthdate",
+          "Status",
+          "Actions",
+        ].map((head) => (
+          <th
+            key={head}
+            className="px-6 py-4 text-left text-xs font-semibold uppercase tracking-wider text-gray-600"
+          >
+            {head}
+          </th>
+        ))}
+      </tr>
+    </thead>
+
+    <tbody className="divide-y divide-gray-100">
+      {profiles.map((user) => (
+        <tr
+          key={user.user_id}
+          className="hover:bg-gray-50 transition"
+        >
+          <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+            {user.full_name}
+          </td>
+
+          <td className="px-6 py-4 text-gray-600">
+            {user.email}
+          </td>
+
+          <td className="px-6 py-4 text-gray-600">
+            {user.disability_type || "N/A"}
+          </td>
+
+          <td className="px-6 py-4 text-gray-600">
+            {user.sex || "N/A"}
+          </td>
+
+          <td className="px-6 py-4 text-gray-600">
+            {user.birthdate
+              ? new Date(user.birthdate).toLocaleDateString()
+              : "N/A"}
+          </td>
+
+          {/* STATUS BADGE */}
+          <td className="px-6 py-4">
+            <span
+              className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold
+                ${
+                  user.status === "pending"
+                    ? "bg-yellow-100 text-yellow-700"
+                    : user.status === "active"
+                    ? "bg-green-100 text-green-700"
+                    : "bg-red-100 text-red-700"
+                }
+              `}
+            >
+              {user.status}
+            </span>
+          </td>
+
+          {/* ACTIONS */}
+          <td className="px-6 py-4">
+            <div className="flex flex-wrap gap-2">
+              {user.status === "pending" && (
+                <>
+                  <button
+                    onClick={() =>
+                      updateUserStatus(user.user_id, "active")
                     }
+                    className="px-3 py-1 text-xs font-semibold bg-green-600 text-white rounded-lg hover:bg-green-700 transition"
                   >
-                    {user.status}
-                  </td>
-                  <td className="flex gap-2">
-                    {user.status === "pending" && (
-                      <>
-                        <button
-                          onClick={() => updateUserStatus(user.user_id, "active")}
-                          className="px-3 py-1 bg-green-600 text-white rounded-xl text-sm hover:bg-green-700"
-                        >
-                          Approve
-                        </button>
-                        <button
-                          onClick={() => updateUserStatus(user.user_id, "rejected")}
-                          className="px-3 py-1 bg-yellow-500 text-white rounded-xl text-sm hover:bg-yellow-600"
-                        >
-                          Reject
-                        </button>
-                      </>
-                    )}
-                    <button
-                      onClick={() => handleDelete(user.user_id)}
-                      className="px-3 py-1 bg-red-600 text-white rounded-xl text-sm hover:bg-red-700"
-                    >
-                      Delete
-                    </button>
-                  </td>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </div>
+                    Approve
+                  </button>
+
+                  <button
+                    onClick={() =>
+                      updateUserStatus(user.user_id, "rejected")
+                    }
+                    className="px-3 py-1 text-xs font-semibold bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition"
+                  >
+                    Reject
+                  </button>
+                </>
+              )}
+
+              <button
+                onClick={() => handleDelete(user.user_id)}
+                className="px-3 py-1 text-xs font-semibold bg-red-600 text-white rounded-lg hover:bg-red-700 transition"
+              >
+                Delete
+              </button>
+            </div>
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
       )}
       
     </div>
