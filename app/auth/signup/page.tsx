@@ -158,7 +158,7 @@ if (formData.pwd_id.length !== 15) {
       setPwdIdPreview(null);
       setIsLogin(true);
       router.refresh();
-    } catch (err: any) {
+    } catch (err: unknown) {
       setErrorMessage(err.message || "Something went wrong");
     } finally {
       setIsLoading(false);
@@ -180,7 +180,7 @@ if (formData.pwd_id.length !== 15) {
               <Image src={logo} alt="Logo" width={100} height={100} />
             </div>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-8 animate-[fadeIn_1s_ease-out]">Welcome Home</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-8 animate-[fadeIn_1s_ease-out]">Welcome</h1>
           <div className="space-y-6 animate-[fadeInUp_1s_ease-out_0.5s_both]">
             <p className="text-2xl md:text-4xl font-light leading-tight text-blue-100">{`"Accessibility for All:`}</p>
             <p className="text-xl md:text-3xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-primary-light to-accent leading-tight">
@@ -228,7 +228,7 @@ if (formData.pwd_id.length !== 15) {
               <Fingerprint size={48} className="text-white/80 group-hover:text-primary-light transition-colors" />
               <div className="text-right">
                 <p className="text-xs text-blue-200 uppercase tracking-widest font-bold">AccessPWD ID</p>
-                <p className="text-white font-mono text-lg tracking-widest mt-1">13 - 7604 - 018 - 0000001</p>
+                <p className="text-white font-mono text-lg tracking-widest mt-1">RR - PPMM - BBB - NNNNNNN</p>
               </div>
             </div>
             <div>

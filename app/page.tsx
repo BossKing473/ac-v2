@@ -26,7 +26,7 @@ const Home: React.FC = () => {
   return (
     <>
       {/* Navigation */}
-      <nav className="w-full flex items-center justify-between px-6 py-4 bg-gradient-to-r from-purple-700 to-purple-900 text-white fixed top-0 left-0 z-50 shadow-md">
+      <nav className="w-full flex items-center justify-between px-6 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white fixed top-0 left-0 z-50 shadow-md">
         <Link href="/" className="flex items-center gap-2 font-bold text-xl">
           <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center text-purple-700 font-bold">
             <Image src={logo} alt="Logo" width={50} height={50} />
@@ -207,7 +207,7 @@ const Home: React.FC = () => {
       <section className="py-24 bg-slate-50 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
         <div className="container mx-auto px-6 relative z-10">
-          <div className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-[3rem] p-12 md:p-24 text-center text-white shadow-2xl relative overflow-hidden">
+          <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-[3rem] p-12 md:p-24 text-center text-white shadow-2xl relative overflow-hidden">
             <div className="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/3 blur-3xl animate-pulse"></div>
             <div className="absolute bottom-0 left-0 w-80 h-80 bg-pink-500/20 rounded-full translate-y-1/3 -translate-x-1/3 blur-3xl animate-pulse"></div>
             

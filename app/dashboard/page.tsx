@@ -118,7 +118,7 @@ export default function UserDashboard() {
                     Status
                   </p>
                   <p className="text-xl font-bold capitalize">
-                    {profile.status || "pending"}
+         Approved
                   </p>
                 </div>
               </div>

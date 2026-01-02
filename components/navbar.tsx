@@ -4,19 +4,15 @@ import React, { useState, useEffect } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
-import {
-  Menu,
-  X,
-  LogOut,
-  Accessibility,
-  UserCircle,
-} from "lucide-react"
+import { Menu, X, LogOut, UserCircle } from "lucide-react"
 import { createClient } from "@/app/utils/client"
 import Image from "next/image"
 import logo from "@/public/Accessible Connections.png"
+
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [fullName, setFullName] = useState<string | null>(null)
+  const [isAdmin, setIsAdmin] = useState(false) // ✅ ADD
   const pathname = usePathname()
   const supabase = createClient()
 
@@ -27,7 +23,7 @@ const Navbar: React.FC = () => {
     { name: "Library", path: "/library" },
     { name: "Training", path: "/training" },
     { name: "Community", path: "/community" },
-    { name: "Contact", path: "/contact" }
+    { name: "Contact", path: "/contact" },
   ]
 
   useEffect(() => {
@@ -38,13 +34,19 @@ const Navbar: React.FC = () => {
 
       if (!user) return
 
-      const { data } = await supabase
+      const { data, error } = await supabase
         .from("profile")
-        .select("full_name")
+        .select("full_name, user_type")
         .eq("user_id", user.id)
         .single()
 
-      if (data) setFullName(data.full_name)
+      if (error) {
+        console.error(error)
+        return
+      }
+
+      setFullName(data.full_name)
+      setIsAdmin(data.user_type === "admin") // ✅ CHECK ADMIN
     }
 
     fetchUser()
@@ -62,13 +64,10 @@ const Navbar: React.FC = () => {
 
           {/* Logo */}
           <Link href="/dashboard" className="flex items-center gap-3">
-            <div>
-              <Image src={logo} alt="Logo" width={50} height={50} />
-            </div>
+            <Image src={logo} alt="Logo" width={50} height={50} />
             <div className="leading-none">
               <p className="font-extrabold text-lg text-gray-900">
-                Accessible
-                <span className="text-purple-600">Connections</span>
+                Accessible<span className="text-purple-600">Connections</span>
               </p>
               <span className="text-xs text-gray-500">
                 AccessPWD Platform
@@ -91,6 +90,20 @@ const Navbar: React.FC = () => {
                 {link.name}
               </Link>
             ))}
+
+            {/* ✅ ADMIN-ONLY REVIEW LINK */}
+            {isAdmin && (
+              <Link
+                href="/review"
+                className={`text-sm font-semibold transition ${
+                  pathname === "/review"
+                    ? "text-purple-600"
+                    : "text-gray-600 hover:text-purple-600"
+                }`}
+              >
+                Review
+              </Link>
+            )}
 
             {/* Profile */}
             <div className="flex items-center gap-3 pl-6 border-l border-neutral-200">
@@ -145,6 +158,21 @@ const Navbar: React.FC = () => {
                   {link.name}
                 </Link>
               ))}
+
+              {/* ✅ ADMIN-ONLY REVIEW (MOBILE) */}
+              {isAdmin && (
+                <Link
+                  href="/review"
+                  onClick={() => setIsOpen(false)}
+                  className={`block text-base font-semibold ${
+                    pathname === "/review"
+                      ? "text-purple-600"
+                      : "text-gray-700"
+                  }`}
+                >
+                  Review
+                </Link>
+              )}
 
               <div className="pt-4 border-t border-neutral-200">
                 <p className="text-sm text-gray-600 mb-3">

@@ -19,9 +19,18 @@ import {
   Monitor,
   HandHeart,
   Star,
+  Search,
+  Building2,
+  Laptop,
+  Hand,
+  MapPin,
+  ArrowRight,
+  Building,
 } from "lucide-react"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
+
+import '@fortawesome/fontawesome-free/css/all.min.css'
 
 interface Section {
   title: string
@@ -31,18 +40,19 @@ interface Section {
 
 // Update the iconMap
 const iconMap = {
-  "search": Search,
+  search: Search,
   "user-tie": Briefcase,
   "graduation-cap": GraduationCap,
   "building": Building2,
-  "laptop": Laptop,
-  "hands-helping": HelpingHand,
+  laptop: Laptop,
+  "hands-helping": Hand,
   "info-circle": Info,
   "balance-scale": Scale,
-  "heartbeat": Heart,
-  "briefcase": Briefcase,
+  heartbeat: Heart,
+  briefcase: Briefcase,
   "laptop-code": Monitor,
-  "map-marked-alt": MapPin, // Add this line
+  "map-marked-alt": MapPin,
+  star: Star,
 } as const
 
 interface FeatureCard {
@@ -726,91 +736,91 @@ const employmentJobs: Job[] = [
 ]
 
 const fslAlphabet: SignData[] = [
-  { id: "a", title: "Letter A", label: "A", type: "image", src: "../vlog/A.jpg" },
-  { id: "b", title: "Letter B", label: "B", type: "image", src: "../vlog/B.jpg" },
-  { id: "c", title: "Letter C", label: "C", type: "image", src: "../vlog/C.jpg" },
-  { id: "d", title: "Letter D", label: "D", type: "image", src: "../vlog/D.jpg" },
-  { id: "e", title: "Letter E", label: "E", type: "image", src: "../vlog/E.jpg" },
-  { id: "f", title: "Letter F", label: "F", type: "image", src: "../vlog/F.jpg" },
-  { id: "g", title: "Letter G", label: "G", type: "image", src: "../vlog/G.jpg" },
-  { id: "h", title: "Letter H", label: "H", type: "image", src: "../vlog/H.jpg" },
-  { id: "i", title: "Letter I", label: "I", type: "image", src: "../vlog/I.jpg" },
-  { id: "j", title: "Letter J", label: "J", type: "video", src: "../vlog/J.mp4" },
-  { id: "k", title: "Letter K", label: "K", type: "image", src: "../vlog/K.jpg" },
-  { id: "l", title: "Letter L", label: "L", type: "image", src: "../vlog/L.jpg" },
-  { id: "m", title: "Letter M", label: "M", type: "image", src: "../vlog/M.jpg" },
-  { id: "n", title: "Letter N", label: "N", type: "image", src: "../vlog/N.jpg" },
-  { id: "o", title: "Letter O", label: "O", type: "image", src: "../vlog/O.jpg" },
-  { id: "p", title: "Letter P", label: "P", type: "image", src: "../vlog/P.jpg" },
-  { id: "q", title: "Letter Q", label: "Q", type: "image", src: "../vlog/Q.jpg" },
-  { id: "r", title: "Letter R", label: "R", type: "image", src: "../vlog/R.jpg" },
-  { id: "s", title: "Letter S", label: "S", type: "image", src: "../vlog/S.jpg" },
-  { id: "t", title: "Letter T", label: "T", type: "image", src: "../vlog/T.jpg" },
-  { id: "u", title: "Letter U", label: "U", type: "image", src: "../vlog/U.jpg" },
-  { id: "v", title: "Letter V", label: "V", type: "image", src: "../vlog/V.jpg" },
-  { id: "w", title: "Letter W", label: "W", type: "image", src: "../vlog/W.jpg" },
-  { id: "x", title: "Letter X", label: "X", type: "image", src: "../vlog/X.jpg" },
-  { id: "y", title: "Letter Y", label: "Y", type: "image", src: "../vlog/Y.jpg" },
-  { id: "z", title: "Letter Z", label: "Z", type: "video", src: "../vlog/z.mp4" },
+  { id: "a", title: "Letter A", label: "A", type: "image", src: "/A.jpg" },
+  { id: "b", title: "Letter B", label: "B", type: "image", src: "/B.jpg" },
+  { id: "c", title: "Letter C", label: "C", type: "image", src: "/C.jpg" },
+  { id: "d", title: "Letter D", label: "D", type: "image", src: "/D.jpg" },
+  { id: "e", title: "Letter E", label: "E", type: "image", src: "/E.jpg" },
+  { id: "f", title: "Letter F", label: "F", type: "image", src: "/F.jpg" },
+  { id: "g", title: "Letter G", label: "G", type: "image", src: "/G.jpg" },
+  { id: "h", title: "Letter H", label: "H", type: "image", src: "/H.jpg" },
+  { id: "i", title: "Letter I", label: "I", type: "image", src: "/I.jpg" },
+  { id: "j", title: "Letter J", label: "J", type: "video", src: "/J.mp4" },
+  { id: "k", title: "Letter K", label: "K", type: "image", src: "/K.jpg" },
+  { id: "l", title: "Letter L", label: "L", type: "image", src: "/L.jpg" },
+  { id: "m", title: "Letter M", label: "M", type: "image", src: "/M.jpg" },
+  { id: "n", title: "Letter N", label: "N", type: "image", src: "/N.jpg" },
+  { id: "o", title: "Letter O", label: "O", type: "image", src: "/O.jpg" },
+  { id: "p", title: "Letter P", label: "P", type: "image", src: "/P.jpg" },
+  { id: "q", title: "Letter Q", label: "Q", type: "image", src: "/Q.jpg" },
+  { id: "r", title: "Letter R", label: "R", type: "image", src: "/R.jpg" },
+  { id: "s", title: "Letter S", label: "S", type: "image", src: "/S.jpg" },
+  { id: "t", title: "Letter T", label: "T", type: "image", src: "/T.jpg" },
+  { id: "u", title: "Letter U", label: "U", type: "image", src: "/U.jpg" },
+  { id: "v", title: "Letter V", label: "V", type: "image", src: "/V.jpg" },
+  { id: "w", title: "Letter W", label: "W", type: "image", src: "/W.jpg" },
+  { id: "x", title: "Letter X", label: "X", type: "image", src: "/X.jpg" },
+  { id: "y", title: "Letter Y", label: "Y", type: "image", src: "/Y.jpg" },
+  { id: "z", title: "Letter Z", label: "Z", type: "video", src: "/z.mp4" },
 ]
 
 const fslNumbers: SignData[] = [
-  { id: "1", title: "Number 1", label: "1", type: "image", src: "../vlog/1.jpg" },
-  { id: "2", title: "Number 2", label: "2", type: "image", src: "../vlog/2.jpg" },
-  { id: "3", title: "Number 3", label: "3", type: "image", src: "../vlog/3.jpg" },
-  { id: "4", title: "Number 4", label: "4", type: "image", src: "../vlog/4.jpg" },
-  { id: "5", title: "Number 5", label: "5", type: "image", src: "../vlog/5.jpg" },
-  { id: "6", title: "Number 6", label: "6", type: "image", src: "../vlog/6.jpg" },
-  { id: "7", title: "Number 7", label: "7", type: "image", src: "../vlog/7.jpg" },
-  { id: "8", title: "Number 8", label: "8", type: "image", src: "../vlog/8.jpg" },
-  { id: "9", title: "Number 9", label: "9", type: "image", src: "../vlog/9.jpg" },
-  { id: "10", title: "Number 10", label: "10", type: "video", src: "../vlog/10.mp4" },
-  { id: "11", title: "Number 11", label: "11", type: "video", src: "../vlog/11.mp4" },
-  { id: "12", title: "Number 12", label: "12", type: "video", src: "../vlog/12.mp4" },
-  { id: "13", title: "Number 13", label: "13", type: "video", src: "../vlog/13.mp4" },
-  { id: "14", title: "Number 14", label: "14", type: "video", src: "../vlog/14.mp4" },
-  { id: "15", title: "Number 15", label: "15", type: "video", src: "../vlog/15.mp4" },
-  { id: "16", title: "Number 16", label: "16", type: "video", src: "../vlog/16.mp4" },
-  { id: "17", title: "Number 17", label: "17", type: "video", src: "../vlog/17.mp4" },
-  { id: "18", title: "Number 18", label: "18", type: "video", src: "../vlog/18.mp4" },
-  { id: "19", title: "Number 19", label: "19", type: "video", src: "../vlog/19.mp4" },
-  { id: "20", title: "Number 20", label: "20", type: "video", src: "../vlog/20.mp4" },
+  { id: "1", title: "Number 1", label: "1", type: "image", src: "/1.jpg" },
+  { id: "2", title: "Number 2", label: "2", type: "image", src: "/2.jpg" },
+  { id: "3", title: "Number 3", label: "3", type: "image", src: "/3.jpg" },
+  { id: "4", title: "Number 4", label: "4", type: "image", src: "/4.jpg" },
+  { id: "5", title: "Number 5", label: "5", type: "image", src: "/5.jpg" },
+  { id: "6", title: "Number 6", label: "6", type: "image", src: "/6.jpg" },
+  { id: "7", title: "Number 7", label: "7", type: "image", src: "/7.jpg" },
+  { id: "8", title: "Number 8", label: "8", type: "image", src: "/8.jpg" },
+  { id: "9", title: "Number 9", label: "9", type: "image", src: "/9.jpg" },
+  { id: "10", title: "Number 10", label: "10", type: "video", src: "/10.mp4" },
+  { id: "11", title: "Number 11", label: "11", type: "video", src: "/11.mp4" },
+  { id: "12", title: "Number 12", label: "12", type: "video", src: "/12.mp4" },
+  { id: "13", title: "Number 13", label: "13", type: "video", src: "/13.mp4" },
+  { id: "14", title: "Number 14", label: "14", type: "video", src: "/14.mp4" },
+  { id: "15", title: "Number 15", label: "15", type: "video", src: "/15.mp4" },
+  { id: "16", title: "Number 16", label: "16", type: "video", src: "/16.mp4" },
+  { id: "17", title: "Number 17", label: "17", type: "video", src: "/17.mp4" },
+  { id: "18", title: "Number 18", label: "18", type: "video", src: "/18.mp4" },
+  { id: "19", title: "Number 19", label: "19", type: "video", src: "/19.mp4" },
+  { id: "20", title: "Number 20", label: "20", type: "video", src: "/20.mp4" },
 ]
 
 const fslGreetings: SignData[] = [
-  { id: "Good morning", title: "Good morning", label: "Good morning", type: "video", src: "../vlog/Good morning.mp4" },
-  { id: "Good afternoon", title: "Good afternoon", label: "Good afternoon", type: "video", src: "../vlog/Good afternoon.mp4" },
-  { id: "Good evening", title: "Good evening", label: "Good evening", type: "video", src: "../vlog/Good evening.mp4" },
-  { id: "Good night", title: "Good night", label: "Good night", type: "video", src: "../vlog/Good night.mp4" },
-  { id: "Good noon", title: "Good noon", label: "Good noon", type: "video", src: "../vlog/Good noon.mp4" },
-  { id: "Good day", title: "Good day", label: "Good day", type: "video", src: "../vlog/Good day.mp4" },
-  { id: "Welcome", title: "Welcome", label: "Welcome", type: "video", src: "../vlog/Welcome.mp4" },
-  { id: "Hi", title: "Hi", label: "Hi", type: "video", src: "../vlog/Hi.mp4" },
-  { id: "Im fine", title: "Im fine", label: "Im fine", type: "video", src: "../vlog/I_m fine.mp4" },
-  { id: "My name is", title: "My name is", label: "My name is", type: "video", src: "../vlog/My name is.mp4" },
-  { id: "Whats your name", title: "Whats your name", label: "Whats your name", type: "video", src: "../vlog/What_s your name.mp4" },
-  { id: "Nice to meet you", title: "Nice to meet you", label: "Nice to meet you", type: "video", src: "../vlog/Nice to meet you.mp4" },
-  { id: "How are you", title: "How are you", label: "How are you", type: "video", src: "../vlog/How are you.mp4" },
-  { id: "Its good to see", title: "Its good to see", label: "Its good to see", type: "video", src: "../vlog/It_s good to see.mp4" },
-  { id: "Long time no see", title: "Long time no see", label: "Long time no see", type: "video", src: "../vlog/Long time no see.mp4" },
-]
+  { id: 'Good morning', title: 'Good morning', label: 'Good morning', type: 'video', src: '/Good morning.mp4' },
+  { id: 'Good afternoon', title: 'Good afternoon', label: 'Good afternoon', type: 'video', src: '/Good afternoon.mp4' },
+  { id: 'Good evening', title: 'Good evening', label: 'Good evening', type: 'video', src: '/Good evening.mp4' },
+  { id: 'Good night', title: 'Good night', label: 'Good night', type: 'video', src: '/Good night.mp4' },
+  { id: 'Good noon', title: 'Good noon', label: 'Good noon', type: 'video', src: '/Good noon.mp4' },
+  { id: 'Good day', title: 'Good day', label: 'Good day', type: 'video', src: '/Good day.mp4' },
+  { id: 'Welcome', title: 'Welcome', label: 'Welcome', type: 'video', src: '/Welcome.mp4' },
+  { id: 'Hi', title: 'Hi', label: 'Hi', type: 'video', src: '/Hi.mp4' },
+  { id: 'Im fine', title: 'Im fine', label: 'Im fine', type: 'video', src: '/I_m fine.mp4' },
+  { id: 'My name is', title: 'My name is', label: 'My name is', type: 'video', src: '/My name is.mp4' },
+  { id: 'Whats your name', title: 'Whats your name', label: 'Whats your name', type: 'video', src: '/What_s your name.mp4' },
+  { id: 'Nice to meet you', title: 'Nice to meet you', label: 'Nice to meet you', type: 'video', src: '/Nice to meet you.mp4' },
+  { id: 'How are you', title: 'How are you', label: 'How are you', type: 'video', src: '/How are you.mp4' },
+  { id: 'Its good to see', title: 'Its good to see', label: 'Its good to see', type: 'video', src: '/It_s good to see.mp4' },
+  { id: 'Long time no see', title: 'Long time no see', label: 'Long time no see', type: 'video', src: '/Long time no see.mp4' }
+];
 
 const fslFamily: SignData[] = [
-  { id: "mother", title: "Mother", label: "Mother", type: "video", src: "../vlog/Mother.mp4" },
-  { id: "father", title: "Father", label: "Father", type: "video", src: "../vlog/Father.mp4" },
-  { id: "Old Brother", title: "Sister", label: "Sister", type: "video", src: "../vlog/Sister_.mp4" },
-  { id: "brother", title: "Brother", label: "Brother", type: "video", src: "../vlog/Bother.mp4" },
-  { id: "grandmother", title: "Grandmother", label: "Grandmother", type: "video", src: "../vlog/Grandmother_.mp4" },
-  { id: "grandfather", title: "Grandfather", label: "Grandfather", type: "video", src: "../vlog/Grandfather_.mp4" },
-  { id: "Mother-in-law", title: "Mother-in-law", label: "Mother-in-law", type: "video", src: "../vlog/Mother-in-law.mp4" },
-  { id: "Father-in-law", title: "Father-in-law", label: "Father-in-law", type: "video", src: "../vlog/Father-in-law.mp4" },
-  { id: "Sister-in-law", title: "Sister-in-law", label: "Sister-in-law", type: "video", src: "../vlog/Sister-in-law.mp4" },
-  { id: "Brother-in-law", title: "Brother-in-law", label: "Brother-in-law", type: "video", src: "../vlog/Bother-in-law.mp4" },
-  { id: "Step-mother", title: "Step-mother", label: "Step-mother", type: "video", src: "../vlog/Step mother.mp4" },
-  { id: "Step-father", title: "Step-father", label: "Step-father", type: "video", src: "../vlog/Step father.mp4" },
-  { id: "Step-sister", title: "Step-sister", label: "Step-sister", type: "video", src: "../vlog/Step sister_.mp4" },
-  { id: "Step-brother", title: "Step-brother", label: "Step-brother", type: "video", src: "../vlog/Step brother_.mp4" },
-]
+  { id: 'mother', title: 'Mother', label: 'Mother', type: 'video', src: '/Mother.mp4' },
+  { id: 'father', title: 'Father', label: 'Father', type: 'video', src: '/Father.mp4' },
+  { id: 'Old Brother', title: 'Sister', label: 'Sister', type: 'video', src: '/Sister_.mp4' },
+  { id: 'brother', title: 'Brother', label: 'Brother', type: 'video', src: '/Bother.mp4' },
+  { id: 'grandmother', title: 'Grandmother', label: 'Grandmother', type: 'video', src: '/Grandmother_.mp4' },
+  { id: 'grandfather', title: 'Grandfather', label: 'Grandfather', type: 'video', src: '/Grandfather_.mp4' },
+  { id: 'Mother-in-law', title: 'Mother-in-law', label: 'Mother-in-law', type: 'video', src: '/Mother-in-law.mp4' },
+  { id: 'Father-in-law', title: 'Father-in-law', label: 'Father-in-law', type: 'video', src: '/Father-in-law.mp4' },
+  { id: 'Sister-in-law', title: 'Sister-in-law', label: 'Sister-in-law', type: 'video', src: '/Sister-in-law.mp4' },
+  { id: 'Brother-in-law', title: 'Brother-in-law', label: 'Brother-in-law', type: 'video', src: '/Bother-in-law.mp4' },
+  { id: 'Step-mother', title: 'Step-mother', label: 'Step-mother', type: 'video', src: '/Step mother.mp4' },
+  { id: 'Step-father', title: 'Step-father', label: 'Step-father', type: 'video', src: '/Step father.mp4' },
+  { id: 'Step-sister', title: 'Step-sister', label: 'Step-sister', type: 'video', src: '/Step sister_.mp4' },
+  { id: 'Step-brother', title: 'Step-brother', label: 'Step-brother', type: 'video', src: '/Step brother_.mp4' },
+];
 
 const guidesContent: Record<string, { title: string; sections: { title: string; items: string[] }[] }> = {
   physical: {
@@ -1581,6 +1591,13 @@ const Services: React.FC<Record<string, never>> = () => {
           items: ["24/7 Crisis Hotline", "Online Counseling", "Support Groups"],
           action: "Get Support",
         },
+        /* {
+          title: "Healthcare Links",
+          icon: "link",
+          description: "Access to government and private healthcare resources, hospitals, and rehabilitation centers.",
+          items: ["Government Agencies", "Hospitals", "Rehabilitation Centers", "NGOs"],
+          action: "View Links",
+        }, */
       ],
     },
     Employment: {
@@ -1844,11 +1861,10 @@ const Services: React.FC<Record<string, never>> = () => {
                         {(() => {
                           const Icon = iconMap[service.icon as keyof typeof iconMap] || Star
                           return (
-                            <Icon
-                              className="w-8 h-8 text-primary group-hover:text-white transition-colors"
-                              strokeWidth={2.2}
-                              aria-hidden="true"
-                            />
+                          <Icon
+  className="w-8 h-8 text-primary group-hover:text-white transition-colors"
+  strokeWidth={2.2}
+/>
                           )
                         })()}
                       </div>
@@ -1902,7 +1918,7 @@ const Services: React.FC<Record<string, never>> = () => {
 
                 <div className="flex flex-col md:flex-row gap-8 md:items-center">
                   <div className="w-24 h-24 rounded-3xl bg-white shadow-xl flex items-center justify-center text-purple-600 flex-shrink-0">
-                    <i className="fas fa-star text-5xl" aria-hidden="true"></i>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-star w-12 h-12" aria-hidden="true"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path></svg>
                   </div>
                   <div>
                     <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">Employment Services</h1>
@@ -1942,31 +1958,43 @@ const Services: React.FC<Record<string, never>> = () => {
                       icon: "search",
                       title: "Job Placement",
                       desc: "We connect persons with disabilities with employers who value diversity and inclusion. Our personalized matching process ensures the right fit for both candidates and companies.",
+                      link: "https://www.jobs180.com/",
+                      linkText: "Visit Jobs180"
                     },
                     {
                       icon: "user-tie",
                       title: "Career Counseling",
                       desc: "Our professional counselors provide guidance on career paths, skill development, and workplace accommodation strategies to help individuals achieve their professional goals.",
+                      link: "https://www.dswd.gov.ph/programs/career-guidance/",
+                      linkText: "DSWD Career Guidance"
                     },
                     {
                       icon: "graduation-cap",
                       title: "Skills Training",
                       desc: "We offer specialized training programs designed to enhance employability skills and technical competencies required in today's competitive job market.",
+                      link: "https://www.tesda.gov.ph/",
+                      linkText: "TESDA Programs"
                     },
                     {
                       icon: "building",
                       title: "Employer Support",
                       desc: "We assist companies in creating inclusive workplaces through disability awareness training, accommodation guidance, and inclusive hiring practices.",
+                      link: "https://www.dole.gov.ph/",
+                      linkText: "DOLE Services"
                     },
                     {
                       icon: "laptop",
                       title: "Remote Work Opportunities",
                       desc: "We specialize in connecting candidates with remote and flexible work arrangements that accommodate various accessibility needs and preferences.",
+                      link: "https://freeup.net/",
+                      linkText: "FreeUp Network"
                     },
                     {
                       icon: "hands-helping",
                       title: "Post-Placement Support",
                       desc: "Our support continues after placement with follow-up services, workplace mediation, and ongoing career development assistance.",
+                      link: "https://www.pfrd.org.ph/",
+                      linkText: "PFRD Support Services"
                     },
                   ].map((item, i) => (
                     <div
@@ -1978,6 +2006,17 @@ const Services: React.FC<Record<string, never>> = () => {
                       </div>
                       <h3 className="text-xl font-bold text-dark mb-3">{item.title}</h3>
                       <p className="text-gray-600 leading-relaxed">{item.desc}</p>
+                      {item.link && (
+                        <a
+                          href={item.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-purple-600 font-bold text-sm flex items-center gap-2 hover:underline mt-4"
+                        >
+                          {item.linkText || "Learn More"} 
+                          <i className="fas fa-external-link-alt text-xs" aria-hidden="true"></i>
+                        </a>
+                      )}
                     </div>
                   ))}
                 </div>
@@ -2108,7 +2147,7 @@ const Services: React.FC<Record<string, never>> = () => {
                   </div>
                   <div className="h-full min-h-[400px] bg-gray-200 relative">
                     <img
-                      src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=2069&auto=format&fit=crop"
+                      src="https://picsum.photos/seed/teamwork/600/400.jpg"
                       alt="Inclusive workplace"
                       className="absolute inset-0 w-full h-full object-cover"
                     />
@@ -2577,6 +2616,97 @@ const Services: React.FC<Record<string, never>> = () => {
                           <span className="text-xs font-bold text-gray-500">4.9</span>
                         </div>
                       </div>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+
+            {activeSubPage === "healthcare-links" && (
+              <motion.div
+                key="healthcare-links-page"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                className="min-h-screen"
+              >
+                <div className="pt-32 pb-24 rounded-b-[3rem] shadow-xl" style={customHeaderStyle}>
+                  <div className="container mx-auto px-6 relative z-10">
+                    <button
+                      type="button"
+                      onClick={() => setActiveSubPage(null)}
+                      className="mb-8 px-6 py-2.5 rounded-full bg-white text-dark font-bold shadow-sm hover:shadow-md transition-all flex items-center gap-2 group"
+                      aria-label="Back to Healthcare"
+                    >
+                      <i className="fas fa-arrow-left group-hover:-translate-x-1 transition-transform" aria-hidden="true"></i> Back to Healthcare
+                    </button>
+                    <h1 className="text-3xl md:text-5xl font-bold text-white mb-6">Healthcare Links</h1>
+                    <p className="text-xl text-gray-200 max-w-3xl leading-relaxed">
+                      Access to government and private healthcare resources, hospitals, rehabilitation centers, and disability-specific organizations in the Philippines.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="container mx-auto px-6 py-20">
+                  <div className="bg-white rounded-3xl shadow-lg border border-gray-100 p-8 md:p-12">
+                    <h2 className="text-2xl font-bold text-dark mb-6">Healthcare Resources Directory</h2>
+                    <p className="text-gray-600 mb-8">
+                      Below is a comprehensive list of healthcare resources, organizations, and facilities available for persons with disabilities in the Philippines.
+                    </p>
+
+                    <div className="space-y-8">
+                      <div>
+                        <h3 className="text-xl font-bold text-red-600 mb-4 flex items-center gap-2">
+                          <i className="fas fa-map-marker-alt"></i> Taguig City Resources
+                        </h3>
+                        <ul className="space-y-3 medical-services">
+                          <li><a href="https://pdao.taguig.info/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-blue-600 hover:underline"><i className="fas fa-external-link-alt text-xs"></i> Taguig City Persons with Disability Affairs Office (PDAO)</a></li>
+                          <li><a href="https://iris.who.int/bitstream/handle/10665/336857/9789290618928-eng.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-blue-600 hover:underline"><i className="fas fa-external-link-alt text-xs"></i> Super Health Centers with Disability-Inclusive Features</a></li>
+                          <li><a href="https://pdao.taguig.info/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-blue-600 hover:underline"><i className="fas fa-external-link-alt text-xs"></i> Taguig Disability Resource and Development Center</a></li>
+                          <li><a href="https://newsinfo.inquirer.net/2039720/taguig-opens-yakap-center-for-children-with-disabilities2" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-blue-600 hover:underline"><i className="fas fa-external-link-alt text-xs"></i> Taguig Yakap Center for Children with Disabilities</a></li>
+                        </ul>
+                      </div>
+
+                      <div>
+                        <h3 className="text-xl font-bold text-red-600 mb-4 flex items-center gap-2">
+                          <i className="fas fa-landmark"></i> National Government Agencies
+                        </h3>
+                        <ul className="space-y-3 medical-services">
+                          <li><a href="https://www.treasury.gov.ph/wp-content/uploads/2021/04/FC2021.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-blue-600 hover:underline"><i className="fas fa-external-link-alt text-xs"></i> National Government Agencies</a></li>
+                          <li><a href="https://ncda.gov.ph/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-blue-600 hover:underline"><i className="fas fa-external-link-alt text-xs"></i> National Council on Disability Affairs (NCDA)</a></li>
+                          <li><a href="https://doh.gov.ph/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-blue-600 hover:underline"><i className="fas fa-external-link-alt text-xs"></i> Department of Health (DOH)</a></li>
+                          <li><a href="https://www.dswd.gov.ph/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-blue-600 hover:underline"><i className="fas fa-external-link-alt text-xs"></i> Department of Social Welfare and Development (DSWD)</a></li>
+                        </ul>
+                      </div>
+
+                      <div>
+                        <h3 className="text-xl font-bold text-red-600 mb-4 flex items-center gap-2">
+                          <i className="fas fa-hospital"></i> Hospitals & Rehabilitation Centers
+                        </h3>
+                        <ul className="space-y-3 medical-services">
+                          <li><a href="https://mariahealth.ph/facilities/taguig-pateros-hospital/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-blue-600 hover:underline"><i className="fas fa-external-link-alt text-xs"></i> Taguig-Pateros District Hospital (TPDH)</a></li>
+                          <li><a href="https://www.stlukes.com.ph/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-blue-600 hover:underline"><i className="fas fa-external-link-alt text-xs"></i> St. Luke's Medical Center - Global City</a></li>
+                          <li><a href="https://ddb.gov.ph/wp-content/uploads/2023/02/DATRC-as-of-Feb9-2022.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-blue-600 hover:underline"><i className="fas fa-external-link-alt text-xs"></i> Rehabilitation Centers (within Metro Manila)</a></li>
+                          <li><a href="https://www.maxihealth.com.ph/services/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-blue-600 hover:underline"><i className="fas fa-external-link-alt text-xs"></i> Primary Care Clinics (Accessibility)</a></li>
+                        </ul>
+                      </div>
+
+                      <div>
+                        <h3 className="text-xl font-bold text-red-600 mb-4 flex items-center gap-2">
+                          <i className="fas fa-hands-helping"></i> Other Resources & Organizations
+                        </h3>
+                        <ul className="space-y-3 medical-services">
+                          <li><a href="https://www.pfrd.org.ph/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-blue-600 hover:underline"><i className="fas fa-external-link-alt text-xs"></i> Philippine Foundation for the Rehabilitation of the Disabled (PFRD)</a></li>
+                          <li><a href="https://www.ets.org/disabilities/resources/organizations.html" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-blue-600 hover:underline"><i className="fas fa-external-link-alt text-xs"></i> Various disability-specific organizations</a></li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div className="mt-12 p-6 bg-red-50 rounded-2xl border border-red-100">
+                      <h4 className="font-bold text-dark mb-2">Note</h4>
+                      <p className="text-gray-600 text-sm">
+                        These links are provided for informational purposes. Please verify the latest information directly with the respective organizations as details may change over time.
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -4019,13 +4149,19 @@ const Services: React.FC<Record<string, never>> = () => {
                         <div className="aspect-square bg-gray-50 rounded-xl mb-3 overflow-hidden flex items-center justify-center">
                           {sign.type === "image" ? (
                             <img
+                            
                               src={sign.src}
                               alt={sign.title}
                               className="w-full h-full object-cover group-hover:scale-110 transition-transform"
                             />
                           ) : (
                             <div className="relative w-full h-full">
-                              <video src={sign.src} className="w-full h-full object-cover" />
+                             <video
+                              src={sign.src}
+                              controls
+                              autoPlay
+                              className="w-full h-full object-cover"
+                            ></video>
                               <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-transparent transition-colors">
                                 <i className="fas fa-play text-white opacity-80" aria-hidden="true"></i>
                               </div>
@@ -4737,6 +4873,11 @@ const Services: React.FC<Record<string, never>> = () => {
                           }
                           if (feature.title === "Legal Consultation" && feature.action === "Request Consultation") {
                             setActiveSubPage("legal-consultation")
+                            window.scrollTo(0, 0)
+                            return
+                          }
+                          if (feature.title === "Healthcare Links" && feature.action === "View Links") {
+                            setActiveSubPage("healthcare-links")
                             window.scrollTo(0, 0)
                             return
                           }
