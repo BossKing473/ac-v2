@@ -158,8 +158,13 @@ if (formData.pwd_id.length !== 15) {
       setPwdIdPreview(null);
       setIsLogin(true);
       router.refresh();
-    } catch (err: unknown) {
-      setErrorMessage(err.message || "Something went wrong");
+    } catch (err) {
+  console.error(err);
+  setErrorMessage(
+    err instanceof Error
+      ? err.message
+      : "Unexpected authentication error"
+  );
     } finally {
       setIsLoading(false);
     }
