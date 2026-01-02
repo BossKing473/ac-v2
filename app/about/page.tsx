@@ -86,7 +86,7 @@ const About: React.FC = () => {
               {
                 name: 'Diane U. Quitaleg',
                 role: 'Lead Researcher',
-                image: Diane,
+                image: Jerome,
                 facebook: 'https://www.facebook.com/Diane.Q01',
                 instagram: 'https://www.instagram.com/dnxii21?igsh=cjAzNGdzb2p0cjFs'
               },
