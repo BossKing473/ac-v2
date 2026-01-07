@@ -59,7 +59,7 @@ const Contact: React.FC = () => {
 
   const socialLinks = [
     { icon: Facebook, url: "https://www.facebook.com/share/1D173GCgyh/" },
-    { icon: Instagram, url: "#" },
+    /* { icon: Instagram, url: "#" }, */
   ];
 
   return (
