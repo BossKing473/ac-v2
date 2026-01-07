@@ -71,7 +71,7 @@ export default function UserDashboard() {
   if (!profile) {
     return (
       <div className="min-h-screen bg-neutral-950 flex items-center justify-center text-neutral-400">
-        Profile not found
+        404: not found
       </div>
     )
   }
