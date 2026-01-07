@@ -95,7 +95,7 @@ const About: React.FC = () => {
                 role: 'Lead Programmer',
                 image: Angelo,
                 facebook: 'https://www.facebook.com/share/1C8NSiYPgq/',
-                instagram: '#'
+                instagram: 'https://www.instagram.com/gear5luffyyt?igsh=M3QwZzN1eWUxc294'
               },
               {
                 name: 'Jerome G. Leal',
